@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "module": "CommonJS",
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
