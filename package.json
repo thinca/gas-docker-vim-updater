@@ -7,14 +7,14 @@
     "gas-feed": "^1.0.3"
   },
   "devDependencies": {
-    "@google/clasp": "^1.5.2",
+    "@google/clasp": "^2.0.1",
     "@types/google-apps-script": "0.0.23",
     "gas-webpack-plugin": "^0.3.0",
     "ts-loader": "^4.4.2",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2",
     "webpack": "^4.16.5",
-    "webpack-cli": "^2.1.5"
+    "webpack-cli": "^3.3.0"
   },
   "license": "Zlib",
   "main": "Code.js",
