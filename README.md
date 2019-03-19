@@ -21,13 +21,13 @@ Setup
 
 3.  Setup GAS Project
 
-    a.  Create a new project
+    1.  Create a new project
 
         ```
         $ ./node_modules/.bin/clasp create ...
         ```
 
-    b.  Or, clone an existing project
+    2.  Or, clone an existing project
 
         ```
         $ ./node_modules/.bin/clasp clone ...
