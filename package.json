@@ -4,16 +4,16 @@
   "version": "1.0.0",
   "author": "thinca <thinca+npm@gmail.com>",
   "dependencies": {
-    "gas-feed": "^1.0.3"
+    "gas-feed": "^1.0.4"
   },
   "devDependencies": {
     "@google/clasp": "^2.0.1",
     "@types/google-apps-script": "0.0.23",
     "gas-webpack-plugin": "^0.3.0",
-    "ts-loader": "^4.4.2",
-    "tslint": "^5.11.0",
+    "ts-loader": "^4.5.0",
+    "tslint": "^5.14.0",
     "typescript": "^2.9.2",
-    "webpack": "^4.16.5",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   },
   "license": "Zlib",
