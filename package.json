@@ -7,7 +7,7 @@
     "gas-feed": "^1.0.4"
   },
   "devDependencies": {
-    "@google/clasp": "^2.0.1",
+    "@google/clasp": "^2.1.0",
     "@types/google-apps-script": "0.0.23",
     "gas-webpack-plugin": "^0.3.0",
     "ts-loader": "^4.5.0",
