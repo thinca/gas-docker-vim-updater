@@ -17,7 +17,7 @@ interface GitReference {
     type: "commit" | "tag";
     sha: string;
     url: string;
-  }
+  };
 }
 
 class Client {
