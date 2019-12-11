@@ -16,7 +16,7 @@ Setup
     See [official document](https://developers.google.com/apps-script/guides/clasp) for details.
 
     ```
-    $ ./node_modules/.bin/clasp login
+    $ npx clasp login
     ```
 
 3.  Setup GAS Project
@@ -24,13 +24,13 @@ Setup
     1.  Create a new project
 
         ```
-        $ ./node_modules/.bin/clasp create ...
+        $ npx clasp create ...
         ```
 
     2.  Or, clone an existing project
 
         ```
-        $ ./node_modules/.bin/clasp clone ...
+        $ npx clasp clone ...
         ```
 
 Usage
@@ -39,7 +39,7 @@ Usage
 Generate the `Code.js` file that to upload to GAS.
 
 ```
-$ ./node_modules/.bin/webpack
+$ npx webpack
 Hash: 3a00f0d51e17ffea6b80
 Version: webpack 4.10.0
 Time: 2732ms
@@ -56,5 +56,5 @@ Entrypoint main = Code.js
 Upload `Code.js` to GAS.
 
 ```
-$ ./node_modules/.bin/clasp push
+$ npx clasp push
 ```
