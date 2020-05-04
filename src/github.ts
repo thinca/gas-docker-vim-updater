@@ -56,7 +56,7 @@ class Client {
   }
 }
 
-class ReposClient extends Client {
+export class ReposClient extends Client {
   constructor(token: string, public readonly repoName: string) {
     super(token);
   }
@@ -79,5 +79,3 @@ class ReposClient extends Client {
     this.sendAPIRequest(url, "delete");
   }
 }
-
-export = {ReposClient};

@@ -1,6 +1,5 @@
-import Feed = require("gas-feed");
-const {FeedReader, SpreadsheetStore} = Feed;
-import GitHub = require("./github");
+import {FeedReader, SpreadsheetStore} from "gas-feed";
+import {ReposClient} from "./github";
 
 const props = PropertiesService.getScriptProperties();
 const WATCH_TARGET = props.getProperty("WATCH_TARGET");
@@ -56,7 +55,7 @@ function doPost(e: GoogleAppsScript.PostURLParameter) {
   if (!/^v[\d.]+$/.test(tag)) {
     return ContentService.createTextOutput("Ignoring the tag");
   }
-  const client = new GitHub.ReposClient(GITHUB_TOKEN, GITHUB_REPO_NAME);
+  const client = new ReposClient(GITHUB_TOKEN, GITHUB_REPO_NAME);
   client.deleteTag(tag);
   return ContentService.createTextOutput("OK");
 }
@@ -75,7 +74,7 @@ function checkNewCommit() {
   if (firstTime) {
     return;
   }
-  const client = new GitHub.ReposClient(GITHUB_TOKEN, GITHUB_REPO_NAME);
+  const client = new ReposClient(GITHUB_TOKEN, GITHUB_REPO_NAME);
   let sha;
   for (const feed of newlyFeeds) {
     const title = feed.title;
