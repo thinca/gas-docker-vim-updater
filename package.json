@@ -4,17 +4,17 @@
   "version": "1.0.0",
   "author": "thinca <thinca+npm@gmail.com>",
   "dependencies": {
-    "gas-feed": "^1.0.6"
+    "gas-feed": "^1.0.8"
   },
   "devDependencies": {
     "@google/clasp": "^2.3.0",
-    "@types/google-apps-script": "0.0.23",
-    "gas-webpack-plugin": "^0.3.0",
-    "ts-loader": "^4.5.0",
-    "tslint": "^5.20.0",
-    "typescript": "^2.9.2",
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.9"
+    "@types/google-apps-script": "1.0.14",
+    "gas-webpack-plugin": "^1.0.3",
+    "ts-loader": "^8.0.1",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.7",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "license": "Zlib",
   "main": "Code.js",

@@ -7,6 +7,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "module": "CommonJS",
+    "lib": ["es5"],
     "sourceMap": true
   },
   "include": [
