@@ -73,9 +73,4 @@ export class ReposClient extends Client {
     const payload = {ref, sha};
     this.sendAPIRequest(url, "post", payload);
   }
-
-  public deleteTag(tag: string) {
-    const url = `https://api.github.com/repos/${this.repoName}/git/refs/tags/${tag}`;
-    this.sendAPIRequest(url, "delete");
-  }
 }
