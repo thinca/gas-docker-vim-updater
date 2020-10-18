@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "thinca <thinca+npm@gmail.com>",
   "dependencies": {
-    "gas-feed": "^1.0.8"
+    "gas-feed": "^2.0.0"
   },
   "devDependencies": {
     "@google/clasp": "^2.3.0",

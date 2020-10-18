@@ -15,10 +15,9 @@ function checkNewCommit() {
     return;
   }
   const store = new SpreadsheetStore(SPREADSHEET_ID, SHEET_NAME);
-  const f = new FeedReader(WATCH_TARGET, store);
+  const reader = new FeedReader(WATCH_TARGET, store);
   const firstTime = store.isEmpty();
-  f.fetch();
-  const newlyFeeds = f.getNewlyEntries();
+  const newlyFeeds = reader.fetch();;
 
   if (firstTime) {
     return;
@@ -35,6 +34,7 @@ function checkNewCommit() {
     sha = sha || client.getSHAFromBranch(BUILD_BRANCH);
     client.createTag(version, sha);
   }
+  reader.save();
 }
 
 declare var global: any;
