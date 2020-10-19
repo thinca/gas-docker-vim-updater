@@ -10,16 +10,6 @@ interface PayloadObject {
 }
 type Payload = string | number | boolean | PayloadObject;
 
-interface GitReference {
-  ref: string;
-  url: string;
-  object: {
-    type: "commit" | "tag";
-    sha: string;
-    url: string;
-  };
-}
-
 class Client {
   constructor(private token: string) {
   }
@@ -29,6 +19,7 @@ class Client {
       contentType: "application/json",
       headers: {
         Authorization: "token " + this.token,
+        Accept: "application/vnd.github.v3+json",
       },
       method,
     };
@@ -49,7 +40,7 @@ class Client {
     }
     Logger.log("%s\n%s\n\n%s\n", response.getResponseCode(), lines.join("\n"), content);
     const contentType = headers["Content-Type"];
-    if (/^application\/json(?:;.*)?$/.test(contentType.toLowerCase())) {
+    if (contentType && /^application\/json(?:;.*)?$/.test(contentType.toLowerCase())) {
       return JSON.parse(content);
     }
     return content;
@@ -61,16 +52,10 @@ export class ReposClient extends Client {
     super(token);
   }
 
-  public getSHAFromBranch(branch: string) {
-    const url = `https://api.github.com/repos/${this.repoName}/git/refs/heads/${branch}`;
-    const result = this.sendAPIRequest(url, "get") as GitReference;
-    return result.object.sha;
-  }
-
-  public createTag(tag: string, sha: string) {
-    const url = `https://api.github.com/repos/${this.repoName}/git/refs`;
-    const ref = `refs/tags/${tag}`;
-    const payload = {ref, sha};
+  public dispatchWorkflow(workflowId: string, inputs: {[key: string]: string}) {
+    const url = `https://api.github.com/repos/${this.repoName}/actions/workflows/${workflowId}/dispatches`;
+    const ref = `refs/heads/master`;
+    const payload = {ref, inputs};
     this.sendAPIRequest(url, "post", payload);
   }
 }

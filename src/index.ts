@@ -7,7 +7,6 @@ const GITHUB_REPO_NAME = props.getProperty("GITHUB_REPO_NAME");
 const GITHUB_TOKEN = props.getProperty("GITHUB_TOKEN");
 const SPREADSHEET_ID = props.getProperty("SPREADSHEET_ID");
 const SHEET_NAME = props.getProperty("SHEET_NAME");
-const BUILD_BRANCH = "master";
 
 function checkNewCommit() {
   if (GITHUB_TOKEN == null || GITHUB_REPO_NAME == null ||
@@ -23,7 +22,6 @@ function checkNewCommit() {
     return;
   }
   const client = new ReposClient(GITHUB_TOKEN, GITHUB_REPO_NAME);
-  let sha;
   for (const feed of newlyFeeds) {
     const title = feed.title;
     const matchResult = /^patch ([\d.]+):/.exec(title);
@@ -31,8 +29,7 @@ function checkNewCommit() {
       continue;
     }
     const version = `v${matchResult[1]}`;
-    sha = sha || client.getSHAFromBranch(BUILD_BRANCH);
-    client.createTag(version, sha);
+    client.dispatchWorkflow("docker_build.yml", {vim_version: version});
   }
   reader.save();
 }
